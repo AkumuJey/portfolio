@@ -22,27 +22,16 @@ const About = () => {
               machine learning in medicine. I also use the concepts in
               understanding health economics and other spheres of business.
             </p>
+            <p>My dream is to get into robotic surgery.</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-evenly w-full">
-          <a href="#" target="_blank">
-            Facebook
-          </a>
-          <a href="#" target="_blank">
-            Linkedin
-          </a>
-          <a href="#" target="_blank">
-            Instagram
-          </a>
-          <a href="#" target="_blank">
-            X (Formerly Twitter)
-          </a>
-          <a href="#" target="_blank">
-            Email
-          </a>
-          <a href="#" target="_blank">
-            Whatsapp
-          </a>
+        <div>
+          <h3>Hobbies</h3>
+          <ul>
+            <li>Nature walks</li>
+            <li>Swimming</li>
+            <li>Reading</li>
+          </ul>
         </div>
       </main>
     </div>
