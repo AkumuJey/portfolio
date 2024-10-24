@@ -1,8 +1,8 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Link from "next/link";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -45,12 +45,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer className="w-full bg-slate-200 shadow-sm flex justify-end gap-4 py-4 px-3">
-          <Link href={`/`}>Home</Link>
-          <Link href={`/contact`}>Contact</Link>
-          <Link href={`/blog`}>Blogs</Link>
-          <Link href={`/about`}>About Me</Link>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
