@@ -31,8 +31,7 @@ export default function Home() {
             nemo repellat similique? Eligendi esse fugit molestias?
           </motion.div>
         </motion.div>
-        <motion.div>
-          <Link href={`/projects`}>Projects</Link>
+        <motion.div className="flex justify-center items-center">
           <Link href={`/contact`}>Contact us</Link>
         </motion.div>
         <motion.div>
@@ -42,8 +41,11 @@ export default function Home() {
             <motion.li>HTML</motion.li>
             <motion.li>CSS</motion.li>
             <motion.li>JavaScript</motion.li>
+            <motion.li>TypeScript</motion.li>
             <motion.li>React</motion.li>
             <motion.li>Vue</motion.li>
+            <motion.li>Next js</motion.li>
+            <motion.li>Nuxt js</motion.li>
             <motion.li>Python</motion.li>
             <motion.li>Web development with Django</motion.li>
             <motion.li>Data Science</motion.li>
