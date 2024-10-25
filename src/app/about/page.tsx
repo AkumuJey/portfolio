@@ -25,9 +25,9 @@ const About = () => {
             <p>My dream is to get into robotic surgery.</p>
           </div>
         </div>
-        <div>
-          <h3>Hobbies</h3>
-          <ul>
+        <div className="flex flex-col justify-between gap-2">
+          <h3 className="font-semibold text-xl">Hobbies</h3>
+          <ul className="list-disc ml-4">
             <li>Nature walks</li>
             <li>Swimming</li>
             <li>Reading</li>

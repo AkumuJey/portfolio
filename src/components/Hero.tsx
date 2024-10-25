@@ -16,7 +16,7 @@ const Hero = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ ease: "easeOut", duration: 0.5 }}
-        className="bg-teal-200 p-3"
+        className="bg-zinc-100 p-3"
       >
         <h1>I am Dr. Akumu J</h1>
         <h2>Medical Doctor & Software Developer</h2>
