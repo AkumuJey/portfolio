@@ -1,6 +1,7 @@
 import * as motion from "framer-motion/client";
 import Image from "next/image";
 import akumuImage from "../public/akumu.png";
+import AnimatedPin from "./AnimatedPin";
 
 const Hero = () => {
   return (
@@ -20,6 +21,7 @@ const Hero = () => {
       >
         <h1>I am Dr. Akumu J</h1>
         <h2>Medical Doctor & Software Developer</h2>
+        <AnimatedPin />
       </motion.div>
     </motion.div>
   );
