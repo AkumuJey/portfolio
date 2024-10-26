@@ -25,7 +25,7 @@ export default function Blog() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold">Blog 1</h3>
+            <h3 className="text-xl font-bold">Blog 2</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
               quis rerum doloribus totam repudiandae magnam assumenda quisquam
@@ -33,7 +33,7 @@ export default function Blog() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold">Blog 1</h3>
+            <h3 className="text-xl font-bold">Blog 3</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
               quis rerum doloribus totam repudiandae magnam assumenda quisquam
@@ -41,7 +41,7 @@ export default function Blog() {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold">Blog 1</h3>
+            <h3 className="text-xl font-bold">Blog 4</h3>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
               quis rerum doloribus totam repudiandae magnam assumenda quisquam

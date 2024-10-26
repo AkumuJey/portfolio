@@ -8,8 +8,8 @@ const Hero = () => {
     <motion.div className="flex gap-4 flex-col md:flex-row bg-red-200 p-5">
       <Image
         src={akumuImage}
-        height={300}
-        width={300}
+        height={150}
+        width={150}
         alt="Akumu"
         className="rounded-full"
       />
