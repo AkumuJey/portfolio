@@ -14,7 +14,7 @@ export default function Contact() {
         <motion.form
           initial={{ y: -50 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.4, bounce: 1 }}
+          transition={{ duration: 0.4 }}
           action={formAction}
           method="post"
           className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md"
