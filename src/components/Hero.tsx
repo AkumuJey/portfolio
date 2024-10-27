@@ -1,7 +1,6 @@
 import * as motion from "framer-motion/client";
 import Image from "next/image";
 import akumuImage from "../public/akumu.png";
-import AnimatedPin from "./AnimatedPin";
 
 const Hero = () => {
   return (
@@ -13,16 +12,6 @@ const Hero = () => {
         alt="Akumu"
         className="rounded-full"
       />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ ease: "easeOut", duration: 0.5 }}
-        className="bg-zinc-100 p-3"
-      >
-        <h1>I am Dr. Akumu J</h1>
-        <h2>Medical Doctor & Software Developer</h2>
-        <AnimatedPin />
-      </motion.div>
     </motion.div>
   );
 };
