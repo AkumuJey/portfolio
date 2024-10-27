@@ -1,17 +1,29 @@
 import Link from "next/link";
-import React from "react";
+
+interface Paths {
+  name: string;
+  href: string;
+}
+const paths: Paths[] = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+  { name: "Blogs", href: "/blog" },
+];
 
 const Footer = () => {
+  const date = new Date();
   return (
     <footer className="w-full bg-slate-200 flex flex-col md:flex-row justify-between gap-4 py-4 px-3">
-      <div>
-        <div>Developed by Dr Jey</div>
+      <div className="order-last md:order-none text-center md:text-left">
+        <div>Developed by Dr Jey © {date.getFullYear()}</div>
       </div>
       <div className="flex flex-col md:flex-row justify-between gap-4">
-        <Link href={`/`}>Home</Link>
-        <Link href={`/contact`}>Contact</Link>
-        <Link href={`/blog`}>Blogs</Link>
-        <Link href={`/about`}>About Me</Link>
+        {paths.map((path) => (
+          <Link key={path.href} href={path.href}>
+            {path.name}
+          </Link>
+        ))}
       </div>
     </footer>
   );
