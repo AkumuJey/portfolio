@@ -53,7 +53,7 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
             initial={{ x: "-100%" }} // Starts off-screen to the left
             animate={{ x: open ? 0 : "-100%" }} // Animates into view
             transition={{ duration: 0.5 }}
-            className={`flex flex-col justify-start gap-4 py-4 px-3 overflow-hidden h-full w-3/4 bg-slate-300`}
+            className={`flex flex-col justify-start gap-4 py-4 px-3 overflow-hidden h-full w-4/5 bg-slate-50 dark:bg-black`}
             id="links"
           >
             <div className="flex flex-col justify-center gap-4 mt-10 w-full">
@@ -62,7 +62,9 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
                   href={path.href}
                   key={path.href}
                   className={`${
-                    pathname === path.href ? "text-purple-700" : ""
+                    pathname === path.href
+                      ? "text-purple-700 dark:text-yellow-500"
+                      : ""
                   } font-semibold`}
                 >
                   <motion.span

@@ -40,8 +40,8 @@ const ThemeToggle = () => {
   return (
     <div className="flex items-center space-x-4">
       <button onClick={toggleTheme} className="py-1 px-1 rounded">
-        {theme === "light" && <Sun />}
-        {theme === "dark" && <Moon />}
+        {theme === "light" && <Moon />}
+        {theme === "dark" && <Sun />}
       </button>
     </div>
   );
