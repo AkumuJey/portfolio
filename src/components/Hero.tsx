@@ -12,14 +12,10 @@ const Hero = () => {
     const handleAnimation = async () => {
       await animate(
         "#image",
-        { opacity: 0, scale: 0.5, rotate: "360deg" },
+        { opacity: 0.4, scale: 0.5, rotate: "360deg" },
         { duration: 0.5 }
       );
-      await animate(
-        "#image",
-        { opacity: 1, scale: 1, rotate: "360deg" },
-        { duration: 0.5 }
-      );
+      await animate("#image", { opacity: 1, scale: 1 }, { duration: 0.5 });
     };
 
     const handlertwo = async () => {
