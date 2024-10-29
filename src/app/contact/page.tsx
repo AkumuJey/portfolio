@@ -10,6 +10,7 @@ export default function Contact() {
   const [state, formAction] = useFormState(handleComment, { msg: "rrr" });
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      {state.msg}
       <main className="row-start-2 flex flex-col gap-4">
         <motion.form
           initial={{ y: -50 }}
@@ -17,7 +18,7 @@ export default function Contact() {
           transition={{ duration: 0.4 }}
           action={formAction}
           method="post"
-          className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md"
+          className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md text-black dark:text-black bg-inherit dark:bg-zinc-700"
         >
           <label htmlFor="name" className="font-bold text-lg">
             Name:

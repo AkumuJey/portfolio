@@ -14,7 +14,7 @@ const paths: Paths[] = [
 const Footer = () => {
   const date = new Date();
   return (
-    <footer className="w-full bg-slate-200 flex flex-col md:flex-row justify-between gap-4 py-4 px-3">
+    <footer className="w-full flex flex-col md:flex-row justify-between gap-4 py-4 px-3 border-t-2 border-slate-50 dark:border-black">
       <div className="order-last md:order-none text-center md:text-left">
         <div>Developed by Dr Jey © {date.getFullYear()}</div>
       </div>

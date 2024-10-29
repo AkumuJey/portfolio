@@ -1,56 +1,57 @@
 "use client";
 import { useAnimate } from "framer-motion";
-import * as motion from "framer-motion/client";
-import { ReactNode, useState } from "react";
+import { useEffect } from "react";
 
 const Skills = () => {
-  const [open, setOpen] = useState(false);
-
   const [scope, animate] = useAnimate();
-  const handleClick = async () => {
-    setOpen(true);
-    await animate("languages", { height: 0 });
-    await animate("languages", { height: "100%" }, { duration: 1 });
-  };
+
+  useEffect(() => {
+    const preAnimation = async () => {
+      animate("#languages", { x: -10, y: -10 }, { duration: 0.3 });
+      animate("#frameworks", { x: -10, y: -10 }, { duration: 0.3 });
+      animate("#webDev", { x: -10, y: -10 }, { duration: 0.3 });
+      animate("#backend", { x: -10, y: -10 }, { duration: 0.3 });
+      animate("#python", { x: -10, y: -10 }, { duration: 0.3 });
+    };
+    const handleAnimation = async () => {
+      await preAnimation();
+      await animate("#languages", { x: 0, y: 0 }, { duration: 0.3 });
+      await animate("#frameworks", { x: 0, y: 0 }, { duration: 0.3 });
+      await animate("#webDev", { x: 0, y: 0 }, { duration: 0.3 });
+      await animate("#backend", { x: 0, y: 0 }, { duration: 0.3 });
+      await animate("#python", { x: 0, y: 0 }, { duration: 0.3 });
+    };
+    handleAnimation();
+  }, [scope, animate]);
+
   return (
-    <motion.div ref={scope}>
-      <motion.h2 className="text-3xl font-bold">My Skills</motion.h2>
-
-      <SkillSection title="Languages">
-        HTML, CSS, JavaScript, TypeScript, Python, Dart, SQL
-      </SkillSection>
-
-      <SkillSection title="Web Frameworks">
-        React, Vue, Next.js, Nuxt.js, Angular, Svelte
-      </SkillSection>
-
-      <SkillSection title="Mobile Development">
-        React Native, Flutter
-      </SkillSection>
-
-      <SkillSection title="Backend">
-        Django, Express, Relational & NoSQL Databases
-      </SkillSection>
-
-      <SkillSection title="Data Science & ML">
-        Python libraries (Pandas, Numpy, TensorFlow, PyTorch, Scikit-learn), SQL
-      </SkillSection>
-    </motion.div>
+    <div ref={scope} className="md:ml-auto">
+      <h2 className="text-3xl font-bold">My Skills</h2>
+      <div className="mb-4" id="languages">
+        <h3 className="text-xl font-semibold">Languages</h3>
+        <p>HTML, CSS, JavaScript, TypeScript, Python, Dart, SQL</p>
+      </div>
+      <div className="mb-4" id="frameworks">
+        <h3 className="text-xl font-semibold">Web Frameworks</h3>
+        <p>React, Vue, Next.js, Nuxt.js, Angular, Svelte</p>
+      </div>
+      <div className="mb-4" id="webDev">
+        <h3 className="text-xl font-semibold">Mobile Development</h3>
+        <p>React Native, Flutter</p>
+      </div>
+      <div className="mb-4" id="backend">
+        <h3 className="text-xl font-semibold">Backend</h3>
+        <p>Django, Express, Relational & NoSQL Databases</p>
+      </div>
+      <div className="mb-4" id="python">
+        <h3 className="text-xl font-semibold">Data Science & ML</h3>
+        <p>
+          Python libraries (Pandas, Numpy, TensorFlow, PyTorch, Scikit-learn),
+          SQL
+        </p>
+      </div>
+    </div>
   );
 };
-
-// Helper component for each section
-const SkillSection = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) => (
-  <motion.div className="mb-4">
-    <motion.h3 className="text-xl font-semibold">{title}</motion.h3>
-    <motion.p>{children}</motion.p>
-  </motion.div>
-);
 
 export default Skills;
