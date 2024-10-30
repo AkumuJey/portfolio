@@ -18,7 +18,7 @@ export default function Contact() {
           transition={{ duration: 0.4 }}
           action={formAction}
           method="post"
-          className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md text-black dark:text-black bg-inherit dark:bg-zinc-700"
+          className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md text-black dark:text-black bg-inherit dark:bg-black"
         >
           <label htmlFor="name" className="font-bold text-lg">
             Name:
@@ -40,7 +40,7 @@ export default function Contact() {
             id="email"
             autoComplete="off"
             required
-            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2"
+            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2 outline-none"
           />
           <label htmlFor="feedback" className="font-bold text-lg">
             Feedback:
@@ -52,7 +52,7 @@ export default function Contact() {
             minLength={5}
             autoComplete="off"
             required
-            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2"
+            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2 outline-none"
           />
           <SubmitButton />
         </motion.form>

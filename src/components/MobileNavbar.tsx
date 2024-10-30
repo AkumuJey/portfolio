@@ -1,4 +1,4 @@
-import { useAnimate } from "framer-motion";
+import { useAnimate, useMotionValueEvent, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
@@ -9,6 +9,17 @@ interface Paths {
   href: string;
 }
 export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latestValue) => {
+    const previousValue = scrollY.getPrevious();
+    if (!previousValue) return;
+    if (latestValue > previousValue && latestValue > 100) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -30,8 +41,14 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
     setOpen(false);
   };
   return (
-    <nav
-      className="flex flex-col justify-between sm:hidden shadow shadow-zinc-100 dark:shadow-zinc-500"
+    <motion.nav
+      className="flex flex-col justify-between sm:hidden shadow shadow-zinc-100 dark:shadow-zinc-500 sticky top-0 bg-inherit z-50"
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: -100 },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
       ref={navBar}
     >
       {/* {!open && ( */}
@@ -46,7 +63,7 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
 
       {open && (
         <div
-          className="bg-transparent fixed top-0 right-0 bottom-0 left-0 z-10"
+          className="bg-transparent min-h-screen fixed top-0 right-0 bottom-0 left-0 z-[1000]"
           onClick={close}
         >
           <motion.div
@@ -81,7 +98,7 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
           </motion.div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 
