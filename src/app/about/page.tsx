@@ -1,5 +1,5 @@
 "use client";
-
+import { motion } from "framer-motion";
 const About = () => {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -25,17 +25,41 @@ const About = () => {
               machine learning in medicine. I also use the concepts in
               understanding health economics and other spheres of business.
             </p>
-            <p>My dream is to get into robotic surgery.</p>
+            <p>My dream is to make life better through robotic surgery.</p>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-2">
-          <h3 className="font-semibold text-xl">Hobbies</h3>
-          <ul className="list-disc ml-4">
-            <li>Nature walks</li>
-            <li>Swimming</li>
-            <li>Reading</li>
+        <motion.div className="flex flex-col gap-4 w-full">
+          <h3 className="text-2xl font-bold">Projects</h3>
+          <ul className="flex flex-col sm:flex-row gap-4 w-full justify-evenly">
+            <motion.li
+              className="flex-col gap-2 p-6 bg-teal-50 dark:bg-zinc-950 rounded-md w-4/5 md:w-2/5"
+              whileHover={{ scale: 1.25 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              <a href="https://jeystelemed.netlify.app/" target="_blank">
+                <div>
+                  <h4 className="font-semibold text-xl">Jey&#39;s Telemed</h4>
+                  <p>Telemedicine platform for remote consultations</p>
+                </div>
+              </a>
+            </motion.li>
+            <motion.li
+              className="flex-col gap-2 p-6 bg-teal-50 dark:bg-zinc-950 rounded-md w-4/5 md:w-2/5"
+              whileHover={{ scale: 1.25 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              <a href="https://afyalocum.vercel.app/" target="_blank">
+                <div>
+                  <h4 className="font-semibold text-xl">AfyaLocum</h4>
+                  <p>
+                    An online platform for advertising locums jobs for health
+                    professionals
+                  </p>
+                </div>
+              </a>
+            </motion.li>
           </ul>
-        </div>
+        </motion.div>
       </main>
     </div>
   );
