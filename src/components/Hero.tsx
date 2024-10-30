@@ -1,9 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import Image from "next/image";
-import akumuImage from "../public/akumu.png";
-import { useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import akumuImage from "../public/akumu.png";
 
 const Hero = () => {
   const [scope, animate] = useAnimate();
@@ -26,12 +25,15 @@ const Hero = () => {
     handlertwo();
   }, [scope, animate]);
   return (
-    <motion.div className="flex gap-4 flex-col md:flex-row p-5" ref={scope}>
+    <motion.div
+      className="flex gap-4 flex-col md:flex-row p-5 w-full justify-evenly"
+      ref={scope}
+    >
       <Image
         src={akumuImage}
         height={150}
         width={150}
-        alt="Akumu"
+        alt="Akumu J Owino"
         className="rounded-full"
         id="image"
       />
