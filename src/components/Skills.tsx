@@ -9,7 +9,7 @@ const Skills = () => {
         <p>HTML, CSS, JavaScript, TypeScript, Python, Dart, SQL</p>
       </div>
       <div className="mb-4" id="frameworks">
-        <h3 className="text-xl font-semibold">Mobile and Web Frameworks</h3>
+        <h3 className="text-xl font-semibold">Mobile and Web Frameworks: </h3>
         <p>
           React, Vue, Next.js, Nuxt.js, Angular, Svelte, React Native, Flutter
         </p>

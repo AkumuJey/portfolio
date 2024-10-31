@@ -1,26 +1,25 @@
 "use client";
 
-import { useFormState } from "react-dom";
 import { motion } from "framer-motion";
-
+import { useFormState } from "react-dom";
 import { handleComment } from "./actions";
 import SubmitButton from "./SubmitButton";
 
 export default function Contact() {
   const [state, formAction] = useFormState(handleComment, { msg: "rrr" });
+  state.msg.split("");
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {state.msg}
-      <main className="row-start-2 flex flex-col gap-4">
+    <div className="grid grid-rows-[20px_1fr_20px] items-start justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="row-start-2 flex flex-col gap-4 w-full">
         <motion.form
           initial={{ y: -50 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.4 }}
           action={formAction}
           method="post"
-          className="flex flex-col gap-2 py-5 px-3 shadow-md shadow-black rounded-md text-black dark:text-black bg-inherit dark:bg-black"
+          className="flex flex-col gap-4 py-6 px-5 rounded-lg shadow-inner shadow-gray-300 dark:shadow-zinc-950 dark:bg-zinc-900 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100"
         >
-          <label htmlFor="name" className="font-bold text-lg">
+          <label htmlFor="name" className="font-semibold text-lg">
             Name:
           </label>
           <input
@@ -28,10 +27,10 @@ export default function Contact() {
             name="name"
             id="name"
             autoComplete="off"
-            className="py-2 px-4 rounded-md outline-none border-slate-300 focus:border-black border-2"
+            className="py-2 px-4 rounded-lg outline-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 focus:border-gray-500 shadow-inner"
             required
           />
-          <label htmlFor="email" className="font-bold text-lg">
+          <label htmlFor="email" className="font-semibold text-lg">
             Email:
           </label>
           <input
@@ -40,10 +39,10 @@ export default function Contact() {
             id="email"
             autoComplete="off"
             required
-            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2 outline-none"
+            className="py-2 px-4 rounded-lg outline-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 focus:border-gray-500 shadow-inner"
           />
-          <label htmlFor="feedback" className="font-bold text-lg">
-            Feedback:
+          <label htmlFor="feedback" className="font-semibold text-lg">
+            Feedback or Message:
           </label>
           <textarea
             name="feedback"
@@ -52,31 +51,12 @@ export default function Contact() {
             minLength={5}
             autoComplete="off"
             required
-            className="py-2 px-4 rounded-md border-slate-300 focus:border-black border-2 outline-none"
+            className="py-2 px-4 rounded-lg outline-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 focus:border-gray-500 shadow-inner"
           />
           <SubmitButton />
         </motion.form>
+
         <address>Naivasha</address>
-        <div className="flex flex-col md:flex-row justify-evenly w-full">
-          <a href="#" target="_blank">
-            Facebook
-          </a>
-          <a href="#" target="_blank">
-            Linkedin
-          </a>
-          <a href="#" target="_blank">
-            Instagram
-          </a>
-          <a href="#" target="_blank">
-            X (Formerly Twitter)
-          </a>
-          <a href="#" target="_blank">
-            Email
-          </a>
-          <a href="#" target="_blank">
-            Whatsapp
-          </a>
-        </div>
       </main>
     </div>
   );

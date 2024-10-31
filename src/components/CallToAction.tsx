@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CallToAction = () => {
   return (
-    <motion.div className="flex justify-center items-end w-full">
+    <motion.div className="flex justify-center w-full">
       <Link
         href={`/contact`}
         className="bg-orange-500 w-3/4 md:w-1/4 text-center py-2 rounded-md text-black font-semibold dark:text-white"
