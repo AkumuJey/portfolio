@@ -8,7 +8,7 @@ const Skills = () => {
   const { scrollYProgress } = useScroll({
     target: ref,
   });
-  const scale = useTransform(scrollYProgress, [0, 1, 0.7], [0.9, 1, 0.9]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 
   return (
     <motion.div
