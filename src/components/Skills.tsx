@@ -1,8 +1,22 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 const Skills = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  });
+  const scale = useTransform(scrollYProgress, [0, 1, 0.7], [0.9, 1, 0.9]);
+
   return (
-    <div className="w-full px-6">
+    <motion.div
+      className="w-full px-6"
+      style={{ scale }}
+      transition={{ ease: "easeInOut" }}
+      ref={ref}
+    >
       <h2 className="text-3xl font-bold">My Skills</h2>
       <div className="mb-4" id="languages">
         <h3 className="text-xl font-semibold">Programming languages:</h3>
@@ -27,7 +41,7 @@ const Skills = () => {
           SQL
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

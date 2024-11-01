@@ -6,8 +6,10 @@ import { handleComment } from "./actions";
 import SubmitButton from "./SubmitButton";
 
 export default function Contact() {
-  const [state, formAction] = useFormState(handleComment, { msg: "rrr" });
-  state.msg.split("");
+  const [state, formAction] = useFormState(handleComment, {
+    msg: "rrr",
+    open: false,
+  });
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-start justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="row-start-2 flex flex-col gap-4 w-full">
@@ -44,6 +46,7 @@ export default function Contact() {
           <label htmlFor="feedback" className="font-semibold text-lg">
             Feedback or Message:
           </label>
+
           <textarea
             name="feedback"
             id="feedback"
@@ -53,10 +56,13 @@ export default function Contact() {
             required
             className="py-2 px-4 rounded-lg outline-none bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-700 focus:border-gray-500 shadow-inner"
           />
-          <SubmitButton />
+          <SubmitButton open={state.open} />
         </motion.form>
-
-        <address>Naivasha</address>
+        {state.open && (
+          <div className="fixed p-4 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] bg-teal-300">
+            Thank you for contacting me {state.msg}
+          </div>
+        )}
       </main>
     </div>
   );

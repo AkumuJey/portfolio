@@ -7,14 +7,16 @@ export interface Comment {
   rating?: Rating;
 }
 
-export const handleComment = async (_previousState: any, comment: FormData) => {
+export const handleComment = async (
+  _previousState: any,
+  formData: FormData
+) => {
   try {
     // console.log("previous", previousState);
-    const x = Object.fromEntries(comment);
-    console.log("Zetu", x);
-    return { msg: "success" };
+    const comment: Comment = Object.fromEntries(formData);
+    return { msg: comment.name, open: true };
   } catch (_err) {
     console.log(_err);
-    return { msg: "failed" };
+    return { msg: "failed", open: false };
   }
 };

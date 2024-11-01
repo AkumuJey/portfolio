@@ -1,11 +1,16 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import akumuImage from "../public/akumu.png";
 
 const Hero = () => {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, (value) => 1 - value);
   return (
-    <motion.div className="flex gap-6 flex-col md:flex-row p-5 w-full justify-start">
+    <motion.div
+      className="flex gap-6 flex-col md:flex-row p-5 w-full justify-start"
+      style={{ scale: scale }}
+    >
       <Image
         src={akumuImage}
         width={600}
