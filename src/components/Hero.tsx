@@ -12,11 +12,11 @@ const Hero = () => {
     animate(
       "#image",
       { scale: 0.8 },
-      { duration: 0.8, ease: "easeInOut" }
+      { duration: 0.6, ease: "easeInOut" }
     ).then(() => {
-      animate("#image", { scale: 1.1 }, { duration: 0.8, ease: "easeInOut" });
+      animate("#image", { scale: 1.1 }, { duration: 0.6, ease: "easeInOut" });
     });
-  });
+  }, [animate]);
 
   return (
     <motion.div
@@ -53,7 +53,7 @@ const Hero = () => {
             animate={{ scale: 1, x: 0 }}
             transition={{ duration: 0.9, ease: "easeInOut" }}
           >
-            I am
+            I&#39;m
           </motion.span>
           <motion.span
             initial={{ x: -10 }}
