@@ -9,9 +9,18 @@ const Projects = () => {
       <h3 className="text-2xl font-bold">Projects</h3>
       <ul className="flex flex-col sm:flex-row gap-4 w-full justify-evenly">
         <motion.li
-          className="flex-col gap-2 p-6 bg-teal-50 dark:bg-zinc-950 rounded-md w-4/5 md:w-2/5"
-          whileHover={{ scale: 1.25 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="flex-col gap-2 p-6 bg-orange-300 dark:bg-orange-900 rounded-md w-4/5 md:w-2/5"
+          whileHover={{
+            y: -5,
+            boxShadow: "0px 6px 20px rgba(129, 230, 217, 0.4)",
+          }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            ease: "easeInOut",
+          }}
         >
           <a href="https://jeystelemed.netlify.app/" target="_blank">
             <div>
@@ -20,10 +29,21 @@ const Projects = () => {
             </div>
           </a>
         </motion.li>
+
         <motion.li
-          className="flex-col gap-2 p-6 bg-teal-50 dark:bg-zinc-950 rounded-md w-4/5 md:w-2/5"
-          whileHover={{ scale: 1.25 }}
-          transition={{ duration: 0.2, ease: "easeInOut" }}
+          className="text-zinc bg-zinc-300 dark:bg-zinc-700 rounded-lg p-6 shadow-md w-4/5 md:w-2/5"
+          whileHover={{
+            y: -3,
+
+            boxShadow: "0px 6px 20px rgba(56, 178, 172, 0.4)", // Teal shadow for extra depth
+          }}
+          transition={{
+            duration: 0.5,
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+            ease: "easeInOut",
+          }}
         >
           <a href="https://afyalocum.vercel.app/" target="_blank">
             <div>

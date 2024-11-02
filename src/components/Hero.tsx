@@ -28,8 +28,8 @@ const Hero = () => {
         src={akumuImage}
         width={600}
         height={600}
-        alt="Akumu J Owino"
-        className="rounded-full w-1/3"
+        alt="Akumu Image"
+        className="rounded-full w-1/3 text-center text-[10px]"
         id="image"
         priority={true}
       />
@@ -46,19 +46,12 @@ const Hero = () => {
             animate={{ scale: 1, x: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            Hi,
+            Hi, I&#39;m
           </motion.span>
           <motion.span
             initial={{ x: -10 }}
             animate={{ scale: 1, x: 0 }}
-            transition={{ duration: 0.9, ease: "easeInOut" }}
-          >
-            I&#39;m
-          </motion.span>
-          <motion.span
-            initial={{ x: -10 }}
-            animate={{ scale: 1, x: 0 }}
-            transition={{ duration: 1.3, ease: "easeInOut" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           >
             Dr. Akumu J. Owino
           </motion.span>

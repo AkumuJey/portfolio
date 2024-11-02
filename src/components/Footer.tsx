@@ -34,6 +34,7 @@ const Footer = () => {
       {/* Social Media Icons */}
       <div className="flex justify-center gap-4 text-xl">
         <a
+          title="Akumu on Github"
           href="https://github.com/AkumuJey"
           target="_blank"
           rel="noopener noreferrer"
@@ -50,6 +51,7 @@ const Footer = () => {
           <FaLinkedin />
         </a>
         <a
+          title="Akumu on X (Formerly Twitter)"
           href="https://x.com/AkumuJey"
           target="_blank"
           rel="noopener noreferrer"
@@ -58,6 +60,7 @@ const Footer = () => {
           <FaTwitter />
         </a>
         <a
+          title="Akumu on WhatsApp"
           href="https://wa.me/+254707590248"
           target="_blank"
           rel="noopener noreferrer"
