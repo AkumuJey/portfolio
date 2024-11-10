@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Medical Doctor | Software Developer",
     images: [
       {
-        url: "/akumu.png",
+        url: "https://mywebsite.vercel.com/akumu.png",
         width: 1260,
         height: 800,
       },
