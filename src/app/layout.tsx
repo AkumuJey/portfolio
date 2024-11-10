@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   category: "Portfolio website | Software Development | Medicine",
   openGraph: {
     title: "Dr Akumu Jey",
-    description: "Medical Doctor | Software Devel",
+    description: "Medical Doctor | Software Developer",
     images: [
       {
         url: "/akumu.png",
