@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Jey",
+  title: "Dr Akumu Jey",
   description: "Medical Doctor | Software Developer",
   keywords: ["Akumu Jey", "Medical Doctor", "Software Developer"],
   creator: "Joseph Akumu",
@@ -25,11 +25,21 @@ export const metadata: Metadata = {
     description: "Medical Doctor | Software Developer",
     images: [
       {
-        url: "https://mywebsite.vercel.com/akumu.png",
-        width: 1260,
-        height: 800,
+        url: "https://mywebsite.vercel.com/akumu.png", // Use the full URL for WhatsApp
+        width: 1200,
+        height: 630,
+        alt: "Dr Akumu Jey Profile",
       },
     ],
+    type: "website",
+    locale: "en_US",
+    url: "https://mywebsite.vercel.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr Akumu Jey",
+    description: "Medical Doctor | Software Developer",
+    images: ["https://mywebsite.vercel.com/akumu.png"],
   },
 };
 
