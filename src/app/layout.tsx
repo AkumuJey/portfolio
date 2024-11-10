@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Medical Doctor | Software Developer",
     images: [
       {
-        url: "https://yt3.ggpht.com/yti/ANjgQV-3nJFJp748WFWOGDBScoGGeyAXzaVJx4tleo_VZ2kBGWI=s88-c-k-c0x00ffffff-no-rj",
+        url: "https://akumujey.vercel.app/akumu.png",
         width: 1200,
         height: 630,
         alt: "Dr Akumu Jey Profile",
@@ -33,15 +33,13 @@ export const metadata: Metadata = {
     ],
     type: "website",
     locale: "en_US",
-    url: "https://yt3.ggpht.com/yti/ANjgQV-3nJFJp748WFWOGDBScoGGeyAXzaVJx4tleo_VZ2kBGWI=s88-c-k-c0x00ffffff-no-rj",
+    url: "https://akumujey.vercel.app/akumu.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "Dr Akumu Jey",
     description: "Medical Doctor | Software Developer",
-    images: [
-      "https://yt3.ggpht.com/yti/ANjgQV-3nJFJp748WFWOGDBScoGGeyAXzaVJx4tleo_VZ2kBGWI=s88-c-k-c0x00ffffff-no-rj",
-    ],
+    images: ["https://akumujey.vercel.app/akumu.png"],
   },
 };
 
