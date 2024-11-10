@@ -42,7 +42,7 @@ export const MobileNavbar = ({ paths }: { paths: Paths[] }) => {
   };
   return (
     <motion.nav
-      className="flex flex-col justify-between sm:hidden shadow shadow-zinc-100 dark:shadow-zinc-500 sticky top-0 bg-inherit z-50"
+      className="flex flex-col justify-between sm:hidden shadow shadow-zinc-100 dark:shadow-zinc-500 sticky top-0 bg-inherit z-50 min-w-full"
       variants={{
         visible: { y: 0 },
         hidden: { y: -100 },

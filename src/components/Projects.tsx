@@ -2,10 +2,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 const Projects = () => {
   const { scrollYProgress } = useScroll({});
-  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.5, 0.8]);
 
   return (
-    <motion.div className="flex flex-col gap-4 w-full p-5" style={{ scale }}>
+    <motion.div
+      className="flex flex-col gap-4 w-full p-5 mx-auto"
+      style={{ scale }}
+    >
       <h3 className="text-2xl font-bold">Projects</h3>
       <ul className="flex flex-col sm:flex-row gap-4 w-full justify-evenly">
         <motion.li
