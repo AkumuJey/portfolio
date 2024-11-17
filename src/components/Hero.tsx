@@ -2,7 +2,6 @@
 import { motion, useAnimate, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
-import akumuImage from "../public/akumu.png";
 
 const Hero = () => {
   const { scrollYProgress } = useScroll();
@@ -25,7 +24,7 @@ const Hero = () => {
       style={{ scale: scale }}
     >
       <Image
-        src={akumuImage}
+        src={`/akumu.png`}
         width={600}
         height={600}
         alt="Akumu Image"

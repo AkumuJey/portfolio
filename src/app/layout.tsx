@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: "Medical Doctor | Software Developer",
     images: [
       {
-        url: "https://akumujey.vercel.app/akumu.png",
+        url: "/akumu.png",
         width: 1200,
         height: 630,
         alt: "Dr Akumu Jey Profile",
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     ],
     type: "website",
     locale: "en_US",
-    url: "https://akumujey.vercel.app/akumu.png",
+    url: "/akumu.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "Dr Akumu Jey",
     description: "Medical Doctor | Software Developer",
-    images: ["https://akumujey.vercel.app/akumu.png"],
+    images: ["/akumu.png"],
   },
 };
 
