@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dr Jey",
+  title: "Akumu's Blogs",
   description: "Medical Doctor | Software Developer",
   keywords: ["Akumu Jey", "Medical Doctor", "Software Developer"],
   creator: "Joseph Akumu",

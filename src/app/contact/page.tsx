@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useFormState } from "react-dom";
 import { handleComment } from "./actions";
 import SubmitButton from "./SubmitButton";
-import Card from "@/components/Card";
 
 export default function Contact() {
   const [state, formAction] = useFormState(handleComment, {
@@ -73,10 +72,10 @@ export default function Contact() {
             Thank you for reaching out, {state.msg}!
           </div>
         )}
-        <Card
+        {/* <Card
           title="Yes"
           description="wedebwicfwrfciwrnaecdfwa cwdcvwdcwecwd"
-        />
+        /> */}
       </main>
     </div>
   );
