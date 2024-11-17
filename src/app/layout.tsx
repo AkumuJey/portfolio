@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dr Akumu Jey",
+  title: "Dr Akumu J. Owino aka Dr Jey",
   description: "Medical Doctor | Software Developer",
   keywords: ["Akumu Jey", "Medical Doctor", "Software Developer"],
   creator: "Joseph Akumu",
