@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useFormState } from "react-dom";
 import { handleComment } from "./actions";
 import SubmitButton from "./SubmitButton";
+import { useActionState } from "react";
 
 export default function Contact() {
-  const [state, formAction] = useFormState(handleComment, {
+  const [state, formAction] = useActionState(handleComment, {
     msg: "rrr",
     open: false,
   });
