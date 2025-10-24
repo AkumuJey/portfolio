@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -57,13 +59,27 @@ export default function RootLayout({
           content="i6V4ylstlMaEA7mozHCO6tuTpG3R8qUXJNWTt_Ja9aA"
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-zinc-800 text-black dark:text-slate-100 w-full`}
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
       >
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-zinc-800 text-black dark:text-slate-100 w-full`}
+        >
+          <Navbar />
+          {/* <FloatingNav
+          navItems={[
+            { name: "Home", link: "/" },
+            { name: "Projects", link: "/projects" },
+            { name: "Contact", link: "/contact" },
+          ]}
+        /> */}
+          {children}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
