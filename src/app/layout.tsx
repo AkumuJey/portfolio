@@ -1,10 +1,8 @@
+import Footer from "@/components/Footer";
+import { FloatingNav } from "@/components/ui/floating-navbar";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { FloatingNav } from "@/components/ui/floating-navbar";
-import { ThemeProvider } from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -52,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="">
       <head>
         <meta
           name="google-site-verification"
@@ -63,23 +61,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-zinc-800 text-black dark:text-slate-100 w-full`}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {/* <FloatingNav
-          navItems={[
-            { name: "Home", link: "/" },
-            { name: "Projects", link: "/projects" },
-            { name: "Contact", link: "/contact" },
-          ]}
-        /> */}
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <FloatingNav />
+        {children}
+        <Footer />
       </body>
     </html>
   );
