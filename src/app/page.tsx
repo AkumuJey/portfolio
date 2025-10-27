@@ -2,106 +2,136 @@
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import Link from "next/link";
+import { useRef } from "react";
 
 export default function Home() {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const { scrollY } = useScroll({ target: ref });
+  const y1 = useTransform(scrollY, [0, 300], [0, -60]);
+  const y2 = useTransform(scrollY, [100, 600], [40, -40]);
 
   return (
     <main
       ref={ref}
-      className="w-full overflow-x-hidden bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 scroll-smooth font-[family-name:var(--font-geist-sans)]"
+      className="relative w-full min-h-screen overflow-x-hidden scroll-smooth bg-gradient-to-b from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-100 font-[family-name:var(--font-geist-sans)]"
     >
-      {/* HERO SECTION */}
-      <section className="relative w-screen min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-blue-600 via-teal-500 to-emerald-400 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 transition-colors duration-700">
+      {/* ================= HERO ================= */}
+      <section className="relative flex flex-col items-center justify-center min-h-[70vh] w-screen overflow-hidden pt-24 sm:pt-28">
+        {/* soft background glow */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          style={{ y: y1 }}
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.25)_0%,transparent_70%)] dark:bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.15)_0%,transparent_70%)]"
+        />
+
+        {/* hero content */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="z-10 flex flex-col items-center justify-center space-y-6"
+          transition={{ duration: 1 }}
+          className="z-10 flex flex-col items-center justify-center text-center space-y-5 px-6"
         >
-          <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/40">
+          <motion.div
+            animate={{ scale: [1, 1.02, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl ring-4 ring-cyan-400/30"
+          >
             <Image
               src="/akumu.png"
               alt="Dr. Joseph Akumu"
               fill
-              priority
               className="object-cover"
             />
-          </div>
+          </motion.div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Dr. Joseph Akumu
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl">
-            Bridging Medicine and Technology to build a healthier, smarter
-            world.
-          </p>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-3xl md:text-4xl font-bold"
+          >
+            Dr. Akumu J. Owino
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed"
+          >
+            Doctor. Developer. Dreamer.
+            <span className="block text-cyan-500 dark:text-cyan-400 font-medium mt-1">
+              Healing with science, building with code.
+            </span>
+          </motion.p>
         </motion.div>
+      </section>
 
+      {/* ================= STORY / MISSION ================= */}
+      <section className="relative flex flex-col items-center justify-center min-h-[50vh] w-screen px-6 py-16 bg-gradient-to-b from-white to-cyan-50 dark:from-gray-900 dark:to-gray-950 text-center overflow-hidden">
         <motion.div
-          style={{ scale }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.3)_0%,transparent_70%)]"
+          style={{ y: y2 }}
+          className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_bottom_left,rgba(56,178,172,0.3),transparent_70%)]"
         />
-      </section>
-
-      {/* MISSION SECTION */}
-      <section className="relative w-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-950 dark:to-gray-900 px-8 py-24">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-3xl text-center space-y-6"
+          className="z-10 max-w-2xl space-y-4"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            🌍 One Mission, Two Paths
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            🌍 Two Worlds. One Vision.
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-            As a doctor, I care for people. As a developer, I build tools that
-            help them thrive. My mission is to merge human compassion with
-            technological precision.
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            My journey bridges the art of medicine and the logic of technology.
+            Each complements the other — care meets innovation, empathy meets
+            precision.
           </p>
         </motion.div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="relative w-screen min-h-screen flex flex-col items-center justify-center bg-gradient-to-t from-cyan-100 via-emerald-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-center px-8 py-24">
-        <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="text-2xl md:text-3xl font-semibold mb-12 text-gray-800 dark:text-gray-100"
-        >
-          Choose your path to explore:
-        </motion.h3>
-
+      {/* ================= CTA SPLIT ================= */}
+      <section className="relative flex flex-col lg:flex-row items-stretch justify-center min-h-[45vh] w-screen text-center">
+        {/* Doctor side */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-6 justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
+          className="flex-1 flex flex-col items-center justify-center bg-gradient-to-br from-emerald-500 to-teal-600 text-white p-10"
         >
+          <h3 className="text-2xl font-semibold mb-3">🩺 Medicine</h3>
+          <p className="text-white/90 mb-6 max-w-sm text-sm md:text-base">
+            Where compassion meets precision. Explore how I innovate in
+            healthcare and digital medicine.
+          </p>
           <Link
             href="/doctor"
-            className="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-teal-500 to-emerald-500 text-white hover:scale-105 transition-transform shadow-lg"
+            className="px-6 py-2 rounded-lg text-sm md:text-base font-medium bg-white/20 hover:bg-white/30 transition-all shadow-md"
           >
-            🩺 Explore Medicine
+            Explore Medicine →
           </Link>
+        </motion.div>
+
+        {/* Tech side */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="flex-1 flex flex-col items-center justify-center bg-gradient-to-tr from-blue-700 via-indigo-600 to-cyan-500 text-white p-10"
+        >
+          <h3 className="text-2xl font-semibold mb-3">💻 Technology</h3>
+          <p className="text-white/90 mb-6 max-w-sm text-sm md:text-base">
+            Where logic meets creativity. See how I build intelligent, scalable
+            health-tech solutions.
+          </p>
           <Link
             href="/tech"
-            className="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:scale-105 transition-transform shadow-lg"
+            className="px-6 py-2 rounded-lg text-sm md:text-base font-medium bg-white/20 hover:bg-white/30 transition-all shadow-md"
           >
-            💻 Explore Technology
+            Explore Technology →
           </Link>
         </motion.div>
       </section>
