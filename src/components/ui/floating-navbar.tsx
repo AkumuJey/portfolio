@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   AnimatePresence,
@@ -6,9 +7,9 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 type NavItem = {
   name: string;
@@ -26,6 +27,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   // Show/hide navbar on scroll
   useMotionValueEvent(scrollYProgress, "change", (current) => {
@@ -35,8 +37,10 @@ export const FloatingNav = ({ className }: { className?: string }) => {
       else setVisible(direction < 0);
     }
   });
+
   return (
     <>
+      {/* Top navigation bar */}
       <AnimatePresence mode="wait">
         <motion.nav
           initial={{ opacity: 0, y: -100 }}
@@ -47,7 +51,7 @@ export const FloatingNav = ({ className }: { className?: string }) => {
             className
           )}
         >
-          {/* Left side: Logo */}
+          {/* Brand / Title */}
           <Link
             href="/"
             className="text-base sm:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 md:mx-4"
@@ -55,20 +59,37 @@ export const FloatingNav = ({ className }: { className?: string }) => {
             Dr Akumu Jey
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop nav */}
           <div className="hidden sm:flex items-center gap-5">
-            {paths.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-neutral-700 dark:text-neutral-100 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {paths.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium transition-colors",
+                    active
+                      ? "text-blue-500 dark:text-blue-400 border-b-2 border-blue-400"
+                      : "text-neutral-700 dark:text-neutral-100 hover:text-blue-500 dark:hover:text-blue-400"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            {/* Theme toggle (UI only for now) */}
+            <button
+              className="ml-2 p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+              aria-label="Toggle theme"
+            >
+              <Sun className="w-5 h-5 text-neutral-700 dark:hidden" />
+              <Moon className="w-5 h-5 text-neutral-100 hidden dark:block" />
+            </button>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="sm:hidden p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
@@ -83,57 +104,45 @@ export const FloatingNav = ({ className }: { className?: string }) => {
         </motion.nav>
       </AnimatePresence>
 
-      {/* Mobile Dropdown Menu (Slide-Up Effect, No Login Button) */}
+      {/* Mobile dropdown menu — pops up from bottom */}
       <AnimatePresence>
         {menuOpen && (
-          <>
-            {/* Dimmed backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setMenuOpen(false)}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[4998] sm:hidden"
-            />
-            {/* Sliding panel */}
-            <motion.div
-              key="mobile-menu"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 16,
-              }}
-              className="fixed bottom-0 inset-x-0 z-[4999] flex flex-col items-center justify-center 
-                         bg-white/95 dark:bg-black/90 backdrop-blur-2xl
-                         border-t border-neutral-200 dark:border-white/[0.1]
-                         rounded-t-3xl py-10 space-y-8 sm:hidden"
-            >
-              {/* Close handle */}
-              <div className="w-10 h-1.5 bg-neutral-400/60 dark:bg-white/30 rounded-full mb-4" />
-
-              {/* Nav Links */}
-              {paths.map((item, i) => (
-                <motion.div
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed bottom-0 inset-x-0 mx-auto rounded-t-2xl bg-white/95 dark:bg-black/90 backdrop-blur-xl border-t border-neutral-200 dark:border-white/[0.1] shadow-[0_-4px_30px_rgba(0,0,0,0.2)] flex flex-col items-center py-6 z-[4999] w-full sm:hidden"
+          >
+            {paths.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
                   key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={cn(
+                    "w-full text-center py-3 text-base font-medium transition-colors",
+                    active
+                      ? "text-blue-500 dark:text-blue-400 border-b border-blue-400"
+                      : "text-neutral-700 dark:text-neutral-100 hover:text-blue-500 dark:hover:text-blue-400"
+                  )}
                 >
-                  <Link
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="text-2xl font-semibold text-neutral-800 dark:text-neutral-100 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </>
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            {/* Theme toggle for mobile (UI only) */}
+            <button
+              className="mt-4 p-3 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+              aria-label="Toggle theme"
+            >
+              <Sun className="w-6 h-6 text-neutral-700 dark:hidden" />
+              <Moon className="w-6 h-6 text-neutral-100 hidden dark:block" />
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
